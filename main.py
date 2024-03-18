@@ -20,8 +20,8 @@ SCREEN = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 game = {
     'circle_size': 50,
     'move_size': 50,
-    'prev_x': 0,
-    'prev_y': 0,
+    'previous_x': 0,
+    'previous_y': 0,
     'user_x': SCREEN_SIZE / 2,
     'user_y': SCREEN_SIZE / 2,
     'hidden_x': 0,
@@ -33,52 +33,48 @@ game = {
     'y': 0
 }
 
-# Global variables
 
-pygame.init()
-surface = pygame.display.set_mode((1000, 800))
+# Global variable
 
 
 def set_center_location():
     global game
-    game['x'] = (SCREEN_SIZE - game['circle_size']) // 2
-    game['y'] = (SCREEN_SIZE - game['circle_size']) // 2
-
-
-def set_hidden_location():
-    global game
-    game['hidden_x'] = random.randint(game['circle_size'] * 2 + 10, SCREEN_SIZE - game['circle_size'] * 2 - 10)
-    game['hidden_y'] = random.randint(game['circle_size'] * 2 + 10, SCREEN_SIZE - game['circle_size'] * 2 - 10)
+    game['user_x'] = (SCREEN_SIZE - game['circle_size']) // 2
+    game['user_y'] = (SCREEN_SIZE - game['circle_size']) // 2
 
 
 def set_circle_color():
     global game
-    overlap = game['circle_size'] * 2 - 1
-    if abs(game['x'] - game['hidden_x']) < overlap and abs(game['y'] - game['hidden_y']) < overlap:
+
+    overlap = game['circle_size'] * 2 - 10
+
+    if abs(game['user_x'] - game['hidden_x']) < overlap and abs(game['user_y'] - game['hidden_y']) < overlap:
         game['hidden_color'] = YELLOW
         game['user_color'] = GREEN
+
     else:
-        if game['previous_x'] != game['x']:
-            if abs(game['previous_x'] - game['hidden_x']) > abs(game['x'] - game['hidden_x']):
+        if game['previous_x'] != game['user_x']:
+            if abs(game['previous_x'] - game['hidden_x']) > abs(game['user_x'] - game['hidden_x']):
                 game['user_color'] = RED
             else:
                 game['user_color'] = BLUE
-        if game['previous_y'] != game['y']:
-            if abs(game['previous_y'] - game['hidden_y']) > abs(game['y'] - game['hidden_y']):
+
+        if game['previous_y'] != game['user_y']:
+            if abs(game['previous_y'] - game['hidden_y']) > abs(game['user_y'] - game['hidden_y']):
                 game['user_color'] = RED
             else:
                 game['user_color'] = BLUE
-    game['previous_x'] = game['x']
-    game['previous_y'] = game['y']
+
+    game['previous_x'] = game['user_x']
+    game['previous_y'] = game['user_y']
 
 
-def draw_circle(surface, color, position):
-    pygame.draw.circle(surface, color, position, game['circle_size'])
+def display_instructions():
+    global game
 
-
-def display_instructions(surface, font):
+    font = pygame.font.SysFont(None, 24)
     text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)
-    surface.blit(text, (10, 10))
+    SCREEN.blit(text, (10, 10))
     instructions = [
         "Use arrow keys to move",
         "d = Debug mode",
@@ -87,11 +83,15 @@ def display_instructions(surface, font):
     ]
     for i, instruction in enumerate(instructions):
         text = font.render(instruction, True, WHITE)
-        surface.blit(text, (10, 30 + i * 20))
+        SCREEN.blit(text, (10, 30 + i * 20))
 
 
 def random_xy():
     global game
+
+    """game['hidden_x'] = random.randint(game['circle_size'] * 2, SCREEN_SIZE - game['circle_size'] * 2)
+    game['hidden_y'] = random.randint(game['circle_size'] * 2, SCREEN_SIZE - game['circle_size'] * 2)
+"""
     user_pos = SCREEN_SIZE / 2
 
     inside_dist = game['circle_size']
@@ -101,13 +101,13 @@ def random_xy():
     left_user_dist = user_pos + game['circle_size']
 
     while True:
-        game['x'] = random.randint(inside_dist, outside_dist)
-        game['y'] = random.randint(inside_dist, outside_dist)
+        game['user_x'] = random.randint(inside_dist, outside_dist)
+        game['user_y'] = random.randint(inside_dist, outside_dist)
 
-        if (game['x'] < right_user_dist or game['x'] > left_user_dist) and (
-                game['y'] < right_user_dist or game['y'] > left_user_dist):
-            game['hidden_x'] = game['x']
-            game['hidden_y'] = game['y']
+        if (game['user_x'] < right_user_dist or game['user_x'] > left_user_dist) and (
+                game['user_y'] < right_user_dist or game['user_y'] > left_user_dist):
+            game['hidden_x'] = game['user_x']
+            game['hidden_y'] = game['user_y']
             return
 
 
@@ -115,36 +115,8 @@ def setup_game():
     global game
     game['num_moves'] = 0
     game['hidden_color'] = BLACK
+    random_xy()
     set_center_location()
-    set_hidden_location()
-
-
-def move_home():
-    set_center_location()
-
-
-def move_left():
-    global game
-    game['x'] -= game['move_size']
-    game['num_moves'] += 1
-
-
-def move_right():
-    global game
-    game['x'] += game['move_size']
-    game['num_moves'] += 1
-
-
-def move_up():
-    global game
-    game['y'] -= game['move_size']
-    game['num_moves'] += 1
-
-
-def move_down():
-    global game
-    game['y'] += game['move_size']
-    game['num_moves'] += 1
 
 
 def debug():
@@ -164,9 +136,10 @@ def play_game():
         clock.tick(15)
         SCREEN.fill(BLACK)
         set_circle_color()
-        draw_circle(SCREEN, game['hidden_color'], (game['hidden_x'], game['hidden_y']))
-        draw_circle(SCREEN, game['user_color'], (game['x'], game['y']))
-        display_instructions(SCREEN, font)
+
+        pygame.draw.circle(SCREEN, game['hidden_color'], (game['hidden_x'], game['hidden_y']), game['circle_size'])
+        pygame.draw.circle(SCREEN, game['user_color'], (game['user_x'], game['user_y']), game['circle_size'])
+        display_instructions()
         pygame.display.flip()
 
         keys = pygame.key.get_pressed()
@@ -175,15 +148,19 @@ def play_game():
         if keys[pygame.K_r]:
             setup_game()
         if keys[pygame.K_h]:
-            move_home()
+            set_center_location()
         if keys[pygame.K_LEFT]:
-            move_left()
+            game['user_x'] -= game['move_size']
+            game['num_moves'] += 1
         if keys[pygame.K_RIGHT]:
-            move_right()
+            game['user_x'] += game['move_size']
+            game['num_moves'] += 1
         if keys[pygame.K_UP]:
-            move_up()
+            game['user_y'] -= game['move_size']
+            game['num_moves'] += 1
         if keys[pygame.K_DOWN]:
-            move_down()
+            game['user_y'] += game['move_size']
+            game['num_moves'] += 1
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -203,18 +180,30 @@ def set_difficulty(level, difficulty):
         game['circle_size'], game['move_size'] = (50, 50)
 
 
-menu = pygame_menu.Menu('Hot/Cold Game', 400, 300, theme=pygame_menu.themes.THEME_BLUE)
-menu.add.selector('Difficulty :', [('Level 1', 1), ('Level 2', 2), ('Level 3', 3), ('Level 4', 4)], onchange=set_difficulty)
-menu.add.button('Play', play_game)
-menu.add.button('Quit', pygame_menu.events.EXIT)
+def menu(screen):
+    menu = pygame_menu.Menu('Hot/Cold Game', 400, 300, theme=pygame_menu.themes.THEME_BLUE)
+    menu.add.selector('Difficulty :', [('Level 1', 1), ('Level 2', 2), ('Level 3', 3), ('Level 4', 4)],
+                      onchange=set_difficulty)
+    menu.add.button('Play', play_game)
+    menu.add.button('Quit', pygame_menu.events.EXIT)
 
-pygame.display.set_caption('Hot Cold Game')
-font = pygame.font.SysFont(None, 24)
-line = font.render('#' + str(game['num_moves']) + " moves", True, YELLOW)
-SCREEN.blit(line, (20, 20))
+    pygame.display.set_caption('Hot Cold Game')
+    font = pygame.font.SysFont(None, 24)
+    line = font.render('#' + str(game['num_moves']) + " moves", True, YELLOW)
+    screen.blit(line, (20, 20))
+
+    return menu
+
+
+def main():
+    pygame.init()
+    pygame.display.set_caption('Hot Cold Game')
+
+    menu_obj = menu(SCREEN)
+    menu_obj.mainloop(SCREEN)
+
+    pygame.quit()
+
 
 if __name__ == '__main__':
-    menu.mainloop(surface)
-    play_game()
-    pygame.quit()
-    sys.exit()
+    main()
