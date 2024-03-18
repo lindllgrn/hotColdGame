@@ -1,4 +1,32 @@
-""""""
+"""
+The Hot/Cold Game
+The user has to try to find a hidden circle using his circle to move around the screen.
+The game's objective is to see how many moves it takes you to find a hidden circle
+on the screen using another circle to navigate.
+
+The hidden circle (same color as the screen background) will be randomly placed on the screen
+
+The user’s circle will always start in the center of the screen
+
+Allow the user to select the difficulty of the game by controlling the size of the circle
+and the distance it moves on each attempt
+
+The user’s circle will be red (hot) when getting closer or blue (cold) when getting further away from the hidden circle
+
+The game has the following key options:
+Up, Down, Left, and Right arrows
+D = Toggle debug mode (displays the display the hidden circle)
+H = Move the user’s circle home position user_x=0, user_y=0
+R = Reset the game
+
+The game will always display a running total of the number of moves
+"""
+
+__author__ = "Lindsay Green"
+__version__ = '1.0'
+__copyright__ = "Copyright 2024.03.18, Hot/Cold Game Assignment"
+__github_ = "https://github.com/lindllgrn/hotColdGame"
+
 
 import pygame
 import random
@@ -13,9 +41,12 @@ YELLOW = (255, 233, 0)
 GREEN = (0, 128, 0)
 GRAY = (128, 128, 128)
 
+
+# Global variables
 SCREEN_SIZE = 800
 SCREEN = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 
+#
 game = {
     'circle_size': 50,
     'move_size': 50,
@@ -31,10 +62,11 @@ game = {
 }
 
 
-# Global variable
-
-
 def set_center_location():
+    """
+    user's circle will be moved to the center of the screen based on circle size and screen size.
+    :return: None
+    """
     global game
 
     game['user_x'] = (SCREEN_SIZE - game['circle_size']) // 2
@@ -42,38 +74,65 @@ def set_center_location():
 
 
 def set_circle_color():
+    """
+    set the amount the user's circle must overlap by the dimension of both circles added together minus 10
+    if the circle overlap
+        then set both circles to different green colors
+    else
+        if the user's circle x location has changed then determine if they are closer or further away from previous x
+            if previous x distance is less than current x distance
+            then set red else blue
+        if the user's circle y location has changed then determine if they are closer or further away from previous y
+            if previous y distance is less than current y distance
+            then set red else blue
+    store the current x, y to previous x, y to get ready for the new user's move
+    :return: None
+    """
     global game
 
+    # Set the amount the user's circle must overlap by the dimension of both circle added together minus 10
     overlap = game['circle_size'] * 2 - 10
 
+    # If the circle overlap then set both circles to different colors
     if abs(game['user_x'] - game['hidden_x']) < overlap and abs(game['user_y'] - game['hidden_y']) < overlap:
         game['hidden_color'] = YELLOW
         game['user_color'] = GREEN
 
     else:
+        # If the user's circle user_x location has changed then determine if they are closer or farther away from previous_x
         if game['previous_x'] != game['user_x']:
+            # If previous_x distance is less than current x distance then set red otherwise blue
             if abs(game['previous_x'] - game['hidden_x']) > abs(game['user_x'] - game['hidden_x']):
                 game['user_color'] = RED
             else:
                 game['user_color'] = BLUE
 
+        # If the user's circle y location has changed then determine if they are closer or further away from previous y
         if game['previous_y'] != game['user_y']:
+            # If previous y distance is less than current y distance then set red otherwise blue
             if abs(game['previous_y'] - game['hidden_y']) > abs(game['user_y'] - game['hidden_y']):
                 game['user_color'] = RED
             else:
                 game['user_color'] = BLUE
 
+    # Store the current x, y to previous x, y to get ready for the new user's move
     game['previous_x'] = game['user_x']
     game['previous_y'] = game['user_y']
 
 
 def display_instructions():
+    """
+    Display the current total number of user's moves
+    and game's instruction on the screen in the upper left-hand corner
+    :return: None
+    """
     global game
 
-    font = pygame.font.SysFont(None, 24)
-    text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)
+    font = pygame.font.SysFont(None, 24) # Change the font
+    text = font.render(f"Total moves = {game['num_moves']}", True, WHITE) # Displays number of moves
     SCREEN.blit(text, (10, 10))
 
+    # List of instructions to display
     instructions = [
         "Use arrow keys to move",
         "d = Debug mode",
