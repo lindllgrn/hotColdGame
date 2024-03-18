@@ -2,7 +2,6 @@
 
 import pygame
 import random
-import sys
 import pygame_menu
 
 # Define colors
@@ -28,9 +27,7 @@ game = {
     'hidden_y': 0,
     'user_color': WHITE,
     'hidden_color': BLACK,
-    'num_moves': 0,
-    'x': 0,
-    'y': 0
+    'num_moves': 0
 }
 
 
@@ -39,6 +36,7 @@ game = {
 
 def set_center_location():
     global game
+
     game['user_x'] = (SCREEN_SIZE - game['circle_size']) // 2
     game['user_y'] = (SCREEN_SIZE - game['circle_size']) // 2
 
@@ -75,12 +73,14 @@ def display_instructions():
     font = pygame.font.SysFont(None, 24)
     text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)
     SCREEN.blit(text, (10, 10))
+
     instructions = [
         "Use arrow keys to move",
         "d = Debug mode",
         "h = Move home",
         "r = Reset game"
     ]
+
     for i, instruction in enumerate(instructions):
         text = font.render(instruction, True, WHITE)
         SCREEN.blit(text, (10, 30 + i * 20))
@@ -89,9 +89,6 @@ def display_instructions():
 def random_xy():
     global game
 
-    """game['hidden_x'] = random.randint(game['circle_size'] * 2, SCREEN_SIZE - game['circle_size'] * 2)
-    game['hidden_y'] = random.randint(game['circle_size'] * 2, SCREEN_SIZE - game['circle_size'] * 2)
-"""
     user_pos = SCREEN_SIZE / 2
 
     inside_dist = game['circle_size']
@@ -113,6 +110,7 @@ def random_xy():
 
 def setup_game():
     global game
+
     game['num_moves'] = 0
     game['hidden_color'] = BLACK
     random_xy()
@@ -121,6 +119,7 @@ def setup_game():
 
 def debug():
     global game
+
     game['hidden_color'] = GRAY
 
 
@@ -132,7 +131,6 @@ def play_game():
     run_me = True
 
     while run_me:
-
         clock.tick(15)
         SCREEN.fill(BLACK)
         set_circle_color()
@@ -143,6 +141,7 @@ def play_game():
         pygame.display.flip()
 
         keys = pygame.key.get_pressed()
+
         if keys[pygame.K_d]:
             debug()
         if keys[pygame.K_r]:
@@ -171,7 +170,7 @@ def set_difficulty(level, difficulty):
     global game
 
     if difficulty == 4:
-        game['circle_size'], game['move_size'] = (4, 4)
+        game['circle_size'], game['move_size'] = (5, 5)
     elif difficulty == 3:
         game['circle_size'], game['move_size'] = (10, 10)
     elif difficulty == 2:
@@ -195,8 +194,16 @@ def menu(screen):
     return menu
 
 
+def play_music():
+    pygame.mixer.init()
+    pygame.mixer.music.load('Farting-Around.mp3')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play(loops=-1)
+
+
 def main():
     pygame.init()
+    play_music()
     pygame.display.set_caption('Hot Cold Game')
 
     menu_obj = menu(SCREEN)
