@@ -12,5 +12,4 @@
   <li>If the user finds the hidden circle, the hidden circle will turn yellow and the user's circle will turn green</li>
   <li>Once the user finds the circle, they can press 'r' to reset the game and move the hidden circle to a different spot</li>
   <li>The user can also press 'd' to debug the game and change the color of the hidden circle so it is visible</li>
-<\ul>
     
