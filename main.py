@@ -27,7 +27,6 @@ __version__ = '1.0'
 __copyright__ = "Copyright 2024.03.18, Hot/Cold Game Assignment"
 __github_ = "https://github.com/lindllgrn/hotColdGame"
 
-
 import pygame
 import random
 import pygame_menu
@@ -41,11 +40,9 @@ YELLOW = (255, 233, 0)
 GREEN = (0, 128, 0)
 GRAY = (128, 128, 128)
 
-
 # Global variables
 SCREEN_SIZE = 800
 SCREEN = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
-
 #
 game = {
     'circle_size': 50,
@@ -56,7 +53,7 @@ game = {
     'user_y': SCREEN_SIZE / 2,
     'hidden_x': 0,
     'hidden_y': 0,
-    'user_color': WHITE,
+    'user_color': GREEN,
     'hidden_color': BLACK,
     'num_moves': 0
 }
@@ -99,7 +96,8 @@ def set_circle_color():
         game['user_color'] = GREEN
 
     else:
-        # If the user's circle user_x location has changed then determine if they are closer or farther away from previous_x
+        # If the user's circle user_x location has changed then determine if they are closer or farther away from
+        # previous_x
         if game['previous_x'] != game['user_x']:
             # If previous_x distance is less than current x distance then set red otherwise blue
             if abs(game['previous_x'] - game['hidden_x']) > abs(game['user_x'] - game['hidden_x']):
@@ -128,8 +126,8 @@ def display_instructions():
     """
     global game
 
-    font = pygame.font.SysFont(None, 24) # Change the font
-    text = font.render(f"Total moves = {game['num_moves']}", True, WHITE) # Displays number of moves
+    font = pygame.font.SysFont(None, 24)  # Change the font
+    text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
     SCREEN.blit(text, (10, 10))
 
     # List of instructions to display
@@ -196,6 +194,7 @@ def play_game():
 
         pygame.draw.circle(SCREEN, game['hidden_color'], (game['hidden_x'], game['hidden_y']), game['circle_size'])
         pygame.draw.circle(SCREEN, game['user_color'], (game['user_x'], game['user_y']), game['circle_size'])
+
         display_instructions()
         pygame.display.flip()
 
@@ -229,7 +228,7 @@ def set_difficulty(level, difficulty):
     global game
 
     if difficulty == 4:
-        game['circle_size'], game['move_size'] = (5, 5)
+        game['circle_size'], game['move_size'] = (7, 7)
     elif difficulty == 3:
         game['circle_size'], game['move_size'] = (10, 10)
     elif difficulty == 2:
@@ -255,7 +254,7 @@ def menu(screen):
 
 def play_music():
     pygame.mixer.init()
-    pygame.mixer.music.load('Farting-Around.mp3')
+    pygame.mixer.music.load('Fluffing-a-Duck.mp3')
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(loops=-1)
 
