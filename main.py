@@ -128,7 +128,7 @@ def display_instructions():
     # List of instructions to display
     instructions = [
         "Use arrow keys to move",
-        "d = Debug mode",
+        "q = Debug mode",
         "h = Move home",
         "r = Reset game"
     ]
@@ -218,7 +218,7 @@ def play_game():
 
         keys = pygame.key.get_pressed()  # Checks for keyboard inputs
 
-        if keys[pygame.K_d]:
+        if keys[pygame.K_q]:
             debug()
         if keys[pygame.K_r]:
             setup_game()
@@ -227,11 +227,23 @@ def play_game():
         if keys[pygame.K_LEFT]:
             game['user_x'] -= game['move_size']
             game['num_moves'] += 1
+        if keys[pygame.K_a]:
+            game['user_x'] -= game['move_size']
+            game['num_moves'] += 1
+        if keys[pygame.K_d]:
+            game['user_x'] += game['move_size']
+            game['num_moves'] += 1
         if keys[pygame.K_RIGHT]:
             game['user_x'] += game['move_size']
             game['num_moves'] += 1
+        if keys [pygame.K_w]:
+            game['user_y'] -= game['move_size']
+            game['num_moves'] += 1
         if keys[pygame.K_UP]:
             game['user_y'] -= game['move_size']
+            game['num_moves'] += 1
+        if keys[pygame.K_s]:
+            game['user_y'] += game['move_size']
             game['num_moves'] += 1
         if keys[pygame.K_DOWN]:
             game['user_y'] += game['move_size']
