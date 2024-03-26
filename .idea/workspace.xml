@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="still trying to get the moving difficulty to work">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="still trying to get the moving difficulty to work pt.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -158,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711411960666</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="still trying to get the moving difficulty to work pt.2">
+      <option name="closed" value="true" />
+      <created>1711420259933</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711420259933</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,7 +190,8 @@
     <MESSAGE value="Created the keys W,A,S,D so the user can use them to move as well as the arrow keys. Changed the 'd' for debug to 'q' so i can use D for moving the circle" />
     <MESSAGE value="first testing of the continuing levels after reaching less than or equal to 10 moves for finding the hidden circle" />
     <MESSAGE value="still trying to get the moving difficulty to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="still trying to get the moving difficulty to work" />
+    <MESSAGE value="still trying to get the moving difficulty to work pt.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="still trying to get the moving difficulty to work pt.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
