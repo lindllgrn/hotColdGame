@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="still trying to get the moving difficulty to work pt.2">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="still trying to get the moving difficulty to work pt.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -166,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711420259933</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="still trying to get the moving difficulty to work pt.3">
+      <option name="closed" value="true" />
+      <created>1711422119366</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711422119366</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,7 +199,8 @@
     <MESSAGE value="first testing of the continuing levels after reaching less than or equal to 10 moves for finding the hidden circle" />
     <MESSAGE value="still trying to get the moving difficulty to work" />
     <MESSAGE value="still trying to get the moving difficulty to work pt.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="still trying to get the moving difficulty to work pt.2" />
+    <MESSAGE value="still trying to get the moving difficulty to work pt.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="still trying to get the moving difficulty to work pt.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

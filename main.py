@@ -190,6 +190,25 @@ def debug():
     game['hidden_color'] = GRAY  # Changes hidden circle to gray
 
 
+def set_difficulty(level, difficulty):
+    """
+    Adjusts the circle size based on difficulty
+    :param level: Gets the level the player chose
+    :param difficulty: Chosen by the player. Determines the size of circles and movement increment
+    :return: None
+    """
+    global game
+
+    if difficulty == 1:
+        game['circle_size'], game['move_size'] = (50, 50)
+    elif difficulty == 2:
+        game['circle_size'], game['move_size'] = (25, 25)
+    elif difficulty == 3:
+        game['circle_size'], game['move_size'] = (10, 10)
+    else:
+        game['circle_size'], game['move_size'] = (7, 7)
+
+
 def play_game():
     """
     Plays the game. Creates the circles and accounts for which key the user presses.
@@ -248,37 +267,19 @@ def play_game():
             game['user_y'] += game['move_size']
             game['num_moves'] += 1
 
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN and set_difficulty(None, difficulty=1):
+            set_difficulty(None, difficulty=2)
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN and set_difficulty(None, difficulty=2):
+            set_difficulty(None, difficulty=3)
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN and set_difficulty(None, difficulty=3):
+            set_difficulty(None, difficulty=4)
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN and set_difficulty(None, difficulty=4):
+            run_me = False
+
         # Checks for events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run_me = False
-
-
-def set_difficulty(level, difficulty):
-    """
-    Adjusts the circle size based on difficulty
-    :param level: Gets the level the player chose
-    :param difficulty: Chosen by the player. Determines the size of circles and movement increment
-    :return: None
-    """
-    global game
-
-    if difficulty == 1:
-        game['circle_size'], game['move_size'] = (50, 50)
-        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW:
-            difficulty = 2
-    if difficulty == 2:
-        game['circle_size'], game['move_size'] = (25, 25)
-        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW:
-            difficulty += difficulty
-    if difficulty == 3:
-        game['circle_size'], game['move_size'] = (10, 10)
-        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW:
-            difficulty += difficulty
-    else:
-        game['circle_size'], game['move_size'] = (7, 7)
-        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW:
-            difficulty += difficulty
 
 
 def menu(screen):
