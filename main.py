@@ -266,18 +266,23 @@ def set_difficulty(level, difficulty):
     if difficulty == 1:
         game['circle_size'], game['move_size'] = (50, 50)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            return
+            difficulty += difficulty
+            pass
+
     elif difficulty == 2:
         game['circle_size'], game['move_size'] = (25, 25)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            return
+            difficulty += difficulty
+            pass
     elif difficulty == 3:
         game['circle_size'], game['move_size'] = (10, 10)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            return
+            difficulty += difficulty
+            pass
     else:
         game['circle_size'], game['move_size'] = (7, 7)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
+            difficulty += difficulty
             pass
 
 

@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="first testing of the continuing levels after reaching less than or equal to 10 moves for finding the hidden circle">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="still trying to get the moving difficulty to work">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711411406148</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="still trying to get the moving difficulty to work">
+      <option name="closed" value="true" />
+      <created>1711411960666</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711411960666</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,7 +181,8 @@
     <MESSAGE value="Finished documentation and completed the program" />
     <MESSAGE value="Created the keys W,A,S,D so the user can use them to move as well as the arrow keys. Changed the 'd' for debug to 'q' so i can use D for moving the circle" />
     <MESSAGE value="first testing of the continuing levels after reaching less than or equal to 10 moves for finding the hidden circle" />
-    <option name="LAST_COMMIT_MESSAGE" value="first testing of the continuing levels after reaching less than or equal to 10 moves for finding the hidden circle" />
+    <MESSAGE value="still trying to get the moving difficulty to work" />
+    <option name="LAST_COMMIT_MESSAGE" value="still trying to get the moving difficulty to work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
