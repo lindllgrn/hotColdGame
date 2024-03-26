@@ -263,22 +263,22 @@ def set_difficulty(level, difficulty):
     """
     global game
 
-    if difficulty == 4:
-        game['circle_size'], game['move_size'] = (7, 7)
+    if difficulty == 1:
+        game['circle_size'], game['move_size'] = (50, 50)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            pass
-    elif difficulty == 3:
-        game['circle_size'], game['move_size'] = (10, 10)
-        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            difficulty = 4
+            return
     elif difficulty == 2:
         game['circle_size'], game['move_size'] = (25, 25)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            difficulty = 3
-    else:
-        game['circle_size'], game['move_size'] = (50, 50)
+            return
+    elif difficulty == 3:
+        game['circle_size'], game['move_size'] = (10, 10)
         if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
-            difficulty = 2
+            return
+    else:
+        game['circle_size'], game['move_size'] = (7, 7)
+        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
+            pass
 
 
 def menu(screen):
