@@ -89,7 +89,6 @@ def set_circle_color():
     if abs(game['user_x'] - game['hidden_x']) < overlap and abs(game['user_y'] - game['hidden_y']) < overlap:
         game['hidden_color'] = YELLOW
         game['user_color'] = GREEN
-
     else:
         # If the user's circle user_x location has changed then determine if they are closer or farther away from
         # previous_x
@@ -236,7 +235,7 @@ def play_game():
         if keys[pygame.K_RIGHT]:
             game['user_x'] += game['move_size']
             game['num_moves'] += 1
-        if keys [pygame.K_w]:
+        if keys[pygame.K_w]:
             game['user_y'] -= game['move_size']
             game['num_moves'] += 1
         if keys[pygame.K_UP]:
@@ -266,12 +265,20 @@ def set_difficulty(level, difficulty):
 
     if difficulty == 4:
         game['circle_size'], game['move_size'] = (7, 7)
+        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
+            pass
     elif difficulty == 3:
         game['circle_size'], game['move_size'] = (10, 10)
+        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
+            difficulty = 4
     elif difficulty == 2:
         game['circle_size'], game['move_size'] = (25, 25)
+        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
+            difficulty = 3
     else:
         game['circle_size'], game['move_size'] = (50, 50)
+        if game['num_moves'] <= 10 and game['hidden_color'] == YELLOW and game['user_color'] == GREEN:
+            difficulty = 2
 
 
 def menu(screen):
@@ -324,7 +331,7 @@ def main():
     menu_obj = menu(SCREEN)
     menu_obj.mainloop(SCREEN)
 
-    pygame.quit() # Quit pygame
+    pygame.quit()  # Quit pygame
 
 
 if __name__ == '__main__':
