@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Got moving difficulty to work a little better but still needs some work">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="GOT MOVING DIFFICULTY TO WORK!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -222,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711567522891</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="GOT MOVING DIFFICULTY TO WORK!!!">
+      <option name="closed" value="true" />
+      <created>1711569346520</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1711569346520</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -254,7 +262,8 @@
     <MESSAGE value="Got moving difficulty to work but not in the way that I want, will continue to try and get it working properly" />
     <MESSAGE value="Tried moving difficulties to be global variables and messed up the code a little bit" />
     <MESSAGE value="Got moving difficulty to work a little better but still needs some work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got moving difficulty to work a little better but still needs some work" />
+    <MESSAGE value="GOT MOVING DIFFICULTY TO WORK!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="GOT MOVING DIFFICULTY TO WORK!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -263,11 +272,6 @@
           <url>file://$PROJECT_DIR$/testing.py</url>
           <line>25</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>204</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -44,6 +44,13 @@ GRAY = (128, 128, 128)
 SCREEN_SIZE = 800
 SCREEN = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 
+prompt = {
+    'prompt1': 'Try to find the hidden circle in 10 moves, you will move on to the next level if you do so. ',
+    'prompt2': 'Try to find the hidden circle in 20 moves, you will move on to the next level if you do so. ',
+    'prompt3': 'Try to find the hidden circle in 50 moves, you will move on to the next level if you do so. ',
+    'prompt4': 'Try to find the hidden circle in 70 moves, you will move on to the next level if you do so. '
+}
+
 # Game data that can change  values
 game = {
     'circle_size': 50,  # 50=level1, 25=level2, 10=level3, 7=level4
@@ -58,6 +65,7 @@ game = {
     'hidden_color': BLACK,  # Make the hidden circle the same color as the background
     'num_moves': 0  # Keep track of the current number of moves
 }
+
 
 def set_center_location():
     """
@@ -109,32 +117,6 @@ def set_circle_color():
     # Store the current x, y to previous x, y to get ready for the new user's move
     game['previous_x'] = game['user_x']
     game['previous_y'] = game['user_y']
-
-
-def display_instructions():
-    """
-    Display the current total number of user's moves
-    and game's instruction on the screen in the upper left-hand corner
-    :return: None
-    """
-    global game
-
-    font = pygame.font.SysFont(None, 24)  # Change the font
-    text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-    SCREEN.blit(text, (10, 10))
-
-    # List of instructions to display
-    instructions = [
-        "Use arrow keys to move",
-        "q = Debug mode",
-        "h = Move home",
-        "r = Reset game"
-    ]
-
-    # Creates the list of instructions
-    for i, instruction in enumerate(instructions):
-        text = font.render(instruction, True, WHITE)
-        SCREEN.blit(text, (10, 30 + i * 20))
 
 
 def random_xy():
@@ -208,13 +190,61 @@ def set_difficulty(level, difficulty):
         game['circle_size'], game['move_size'] = (7, 7)
 
 
+def display_instructions():
+    """
+    Display the current total number of user's moves
+    and game's instruction on the screen in the upper left-hand corner
+    :return: None
+    """
+    global game
+
+    font = pygame.font.SysFont(None, 24)  # Change the font
+    text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
+    SCREEN.blit(text, (10, 110))
+
+    if game['circle_size'] == 50 and game['move_size'] == 50:
+        font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt1']}", True, WHITE)
+        SCREEN.blit(text, (10, 10))
+
+    if game['circle_size'] == 25 and game['move_size'] == 25:
+        font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt2']}", True, WHITE)
+        SCREEN.blit(text, (10, 10))
+
+    if game['circle_size'] == 10 and game['move_size'] == 10:
+        font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt3']}", True, WHITE)
+        SCREEN.blit(text, (10, 10))
+
+    if game['circle_size'] == 10 and game['move_size'] == 10:
+        font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt4']}", True, WHITE)
+        SCREEN.blit(text, (10, 10))
+
+    # List of instructions to display
+    instructions = [
+        "Use arrow keys to move",
+        "q = Debug mode",
+        "h = Move home",
+        "r = Reset game",
+        "\n",
+        "Otherwise, you will play the level over until you do."
+    ]
+
+    # Creates the list of instructions
+    for i, instruction in enumerate(instructions):
+        text = font.render(instruction, True, WHITE)
+        SCREEN.blit(text, (10, 30 + i * 20))
+
+
 def play_game():
     """
     Plays the game. Creates the circles and accounts for which key the user presses.
     Displays instructions in the top left corner
     :return: None
     """
-    global game, DIFFICULTY1, DIFFICULTY2, DIFFICULTY3, DIFFICULTY4
+    global game, prompt
 
     clock = pygame.time.Clock()  # Initialize pygame clock
 
@@ -278,7 +308,7 @@ def play_game():
             set_difficulty(None, 3)
             setup_game()
 
-        if game['num_moves'] > 70 and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
+        if game['num_moves'] > 50 and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
             setup_game()
         elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
             set_difficulty(None, 4)
