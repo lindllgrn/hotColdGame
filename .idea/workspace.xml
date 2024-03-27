@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="got the moving difficulty working for the most part, just need to get it working fully">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="now having issues with user_color and moving difficulty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -182,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711466819376</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="now having issues with user_color and moving difficulty">
+      <option name="closed" value="true" />
+      <created>1711467700877</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711467700877</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +217,8 @@
     <MESSAGE value="still trying to get the moving difficulty to work pt.2" />
     <MESSAGE value="still trying to get the moving difficulty to work pt.3" />
     <MESSAGE value="got the moving difficulty working for the most part, just need to get it working fully" />
-    <option name="LAST_COMMIT_MESSAGE" value="got the moving difficulty working for the most part, just need to get it working fully" />
+    <MESSAGE value="now having issues with user_color and moving difficulty" />
+    <option name="LAST_COMMIT_MESSAGE" value="now having issues with user_color and moving difficulty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
