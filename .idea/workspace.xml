@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="GOT MOVING DIFFICULTY TO WORK!!!">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="changing up the directions so it displays something different for each difficulty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -35,17 +35,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.hotcold_game_turtle.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.testing.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "inlay.hints"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.hotcold_game_turtle.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="hotColdGame" />
@@ -230,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711569346520</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="changing up the directions so it displays something different for each difficulty">
+      <option name="closed" value="true" />
+      <created>1711571409585</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1711571409585</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +271,8 @@
     <MESSAGE value="Tried moving difficulties to be global variables and messed up the code a little bit" />
     <MESSAGE value="Got moving difficulty to work a little better but still needs some work" />
     <MESSAGE value="GOT MOVING DIFFICULTY TO WORK!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="GOT MOVING DIFFICULTY TO WORK!!!" />
+    <MESSAGE value="changing up the directions so it displays something different for each difficulty" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing up the directions so it displays something different for each difficulty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

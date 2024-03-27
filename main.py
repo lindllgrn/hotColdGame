@@ -204,22 +204,22 @@ def display_instructions():
 
     if game['circle_size'] == 50 and game['move_size'] == 50:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt1']}", True, WHITE)
+        text = font.render(f"{prompt['prompt1']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
 
     if game['circle_size'] == 25 and game['move_size'] == 25:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt2']}", True, WHITE)
+        text = font.render(f"{prompt['prompt2']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
 
     if game['circle_size'] == 10 and game['move_size'] == 10:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt3']}", True, WHITE)
+        text = font.render(f"{prompt['prompt3']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
 
-    if game['circle_size'] == 10 and game['move_size'] == 10:
+    if game['circle_size'] == 7 and game['move_size'] == 7:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt4']}", True, WHITE)
+        text = font.render(f"{prompt['prompt4']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
 
     # List of instructions to display
@@ -244,7 +244,7 @@ def play_game():
     Displays instructions in the top left corner
     :return: None
     """
-    global game, prompt
+    global game
 
     clock = pygame.time.Clock()  # Initialize pygame clock
 
@@ -302,7 +302,7 @@ def play_game():
             set_difficulty(None, 2)
             setup_game()
 
-        if game['num_moves'] > 11 and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
+        if game['num_moves'] > 21 and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
             setup_game()
         elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
             set_difficulty(None, 3)
@@ -344,11 +344,6 @@ def menu(screen):
     # Set the window caption
     pygame.display.set_caption('Hot Cold Game')
 
-    # Render and display the number of moves on the screen
-    font = pygame.font.SysFont(None, 24)
-    line = font.render('#' + str(game['num_moves']) + " moves", True, YELLOW)
-    screen.blit(line, (20, 20))
-
     return menu
 
 
@@ -372,6 +367,7 @@ def main():
     play_music()  # Plays the music on infinite loop
 
     # Display the game menu and handle events
+
     menu_obj = menu(SCREEN)
     menu_obj.mainloop(SCREEN)
 
