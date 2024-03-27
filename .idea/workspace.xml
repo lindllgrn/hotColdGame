@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Got moving difficulty to work but not in the way that I want, will continue to try and get it working properly">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Tried moving difficulties to be global variables and messed up the code a little bit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -206,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711555807320</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Tried moving difficulties to be global variables and messed up the code a little bit">
+      <option name="closed" value="true" />
+      <created>1711557712286</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711557712286</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,7 +244,8 @@
     <MESSAGE value="now having issues with user_color and moving difficulty" />
     <MESSAGE value="Got the issues of the user color fixed, still having issues with moving difficulty" />
     <MESSAGE value="Got moving difficulty to work but not in the way that I want, will continue to try and get it working properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got moving difficulty to work but not in the way that I want, will continue to try and get it working properly" />
+    <MESSAGE value="Tried moving difficulties to be global variables and messed up the code a little bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tried moving difficulties to be global variables and messed up the code a little bit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -272,16 +272,25 @@ def play_game():
             game['user_y'] += game['move_size']
             game['num_moves'] += 1
 
-        if game['num_moves'] <= 10 and game['user_color'] == GREEN and DIFFICULTY1:
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN:
             set_difficulty(None, 2)
             setup_game()
-        elif game['num_moves'] <= 20 and game['user_color'] == GREEN and DIFFICULTY2:
+        elif game['num_moves'] > 10 and game['user_color'] == GREEN:
+            setup_game()
+
+        if 11 < game['num_moves'] <= 30 and game['user_color'] == GREEN:
             set_difficulty(None, 3)
             setup_game()
-        elif game['num_moves'] <= 60 and game['user_color'] == GREEN and DIFFICULTY3:
+        elif 11 > game['num_moves'] > 30 and game['user_color'] == GREEN:
+            setup_game()
+
+        if 31 < game['num_moves'] <= 70 and game['user_color'] == GREEN:
             set_difficulty(None, 4)
             setup_game()
-        elif game['num_moves'] <= 100 and game['user_color'] == GREEN and DIFFICULTY4:
+        elif 31 > game['num_moves'] > 70 and game['user_color'] == GREEN:
+            setup_game()
+
+        if 71 < game['num_moves'] <= 1000 and game['user_color'] == GREEN:
             menu_obj = menu(SCREEN)
             menu_obj.mainloop(SCREEN)
 
