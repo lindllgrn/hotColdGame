@@ -267,22 +267,24 @@ def play_game():
             game['user_y'] += game['move_size']
             game['num_moves'] += 1
 
-        if game['num_moves'] <= 10 and game['user_color'] == GREEN and set_difficulty(None, 1):
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN:
             set_difficulty(None, 2)
             setup_game()
-        if game['num_moves'] <= 20 and game['user_color'] == GREEN and set_difficulty(None, 2):
+        elif game['num_moves'] <= 20 and game['user_color'] == GREEN:
             set_difficulty(None, 3)
             setup_game()
-        if game['num_moves'] <= 30 and game['user_color'] == GREEN and set_difficulty(None, 3):
+        elif game['num_moves'] <= 60 and game['user_color'] == GREEN:
             set_difficulty(None, 4)
             setup_game()
-        if game['num_moves'] <= 40 and game['user_color'] == GREEN and set_difficulty(None, 4):
-            run_me = False
+        elif game['num_moves'] <= 100 and game['user_color'] == GREEN:
+            menu_obj = menu(SCREEN)
+            menu_obj.mainloop(SCREEN)
 
-            # Checks for events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run_me = False
+
+    # Checks for events
 
 
 def menu(screen):
