@@ -59,12 +59,6 @@ game = {
     'num_moves': 0  # Keep track of the current number of moves
 }
 
-DIFFICULTY1 = game['circle_size'], game['move_size'] = (50, 50)
-DIFFICULTY2 = game['circle_size'], game['move_size'] = (25, 25)
-DIFFICULTY3 = game['circle_size'], game['move_size'] = (10, 10)
-DIFFICULTY4 = game['circle_size'], game['move_size'] = (7, 7)
-
-
 def set_center_location():
     """
     user's circle will be moved to the center of the screen based on circle size and screen size.
@@ -272,25 +266,25 @@ def play_game():
             game['user_y'] += game['move_size']
             game['num_moves'] += 1
 
-        if game['num_moves'] <= 10 and game['user_color'] == GREEN:
+        if game['num_moves'] > 10 and game['user_color'] == GREEN and game['circle_size'] == 50 and game['move_size'] == 50:
+            setup_game()
+        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 50 and game['move_size'] == 50:
             set_difficulty(None, 2)
             setup_game()
-        elif game['num_moves'] > 10 and game['user_color'] == GREEN:
-            setup_game()
 
-        if 11 < game['num_moves'] <= 30 and game['user_color'] == GREEN:
+        if game['num_moves'] > 11 and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
+            setup_game()
+        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
             set_difficulty(None, 3)
             setup_game()
-        elif 11 > game['num_moves'] > 30 and game['user_color'] == GREEN:
-            setup_game()
 
-        if 31 < game['num_moves'] <= 70 and game['user_color'] == GREEN:
+        if game['num_moves'] > 70 and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
+            setup_game()
+        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
             set_difficulty(None, 4)
             setup_game()
-        elif 31 > game['num_moves'] > 70 and game['user_color'] == GREEN:
-            setup_game()
 
-        if 71 < game['num_moves'] <= 1000 and game['user_color'] == GREEN:
+        if game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 7 and game['move_size'] == 7:
             menu_obj = menu(SCREEN)
             menu_obj.mainloop(SCREEN)
 

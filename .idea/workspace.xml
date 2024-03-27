@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Tried moving difficulties to be global variables and messed up the code a little bit">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Got moving difficulty to work a little better but still needs some work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -35,17 +35,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.hotcold_game_turtle.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testing.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.hotcold_game_turtle.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.testing.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="hotColdGame" />
@@ -214,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711557712286</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Got moving difficulty to work a little better but still needs some work">
+      <option name="closed" value="true" />
+      <created>1711567522891</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1711567522891</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +253,8 @@
     <MESSAGE value="Got the issues of the user color fixed, still having issues with moving difficulty" />
     <MESSAGE value="Got moving difficulty to work but not in the way that I want, will continue to try and get it working properly" />
     <MESSAGE value="Tried moving difficulties to be global variables and messed up the code a little bit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tried moving difficulties to be global variables and messed up the code a little bit" />
+    <MESSAGE value="Got moving difficulty to work a little better but still needs some work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got moving difficulty to work a little better but still needs some work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -257,7 +266,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>210</line>
+          <line>204</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
