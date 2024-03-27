@@ -59,6 +59,11 @@ game = {
     'num_moves': 0  # Keep track of the current number of moves
 }
 
+DIFFICULTY1 = game['circle_size'], game['move_size'] = (50, 50)
+DIFFICULTY2 = game['circle_size'], game['move_size'] = (25, 25)
+DIFFICULTY3 = game['circle_size'], game['move_size'] = (10, 10)
+DIFFICULTY4 = game['circle_size'], game['move_size'] = (7, 7)
+
 
 def set_center_location():
     """
@@ -205,7 +210,7 @@ def set_difficulty(level, difficulty):
         game['circle_size'], game['move_size'] = (25, 25)
     elif difficulty == 3:
         game['circle_size'], game['move_size'] = (10, 10)
-    else:
+    elif difficulty == 4:
         game['circle_size'], game['move_size'] = (7, 7)
 
 
@@ -215,7 +220,7 @@ def play_game():
     Displays instructions in the top left corner
     :return: None
     """
-    global game
+    global game, DIFFICULTY1, DIFFICULTY2, DIFFICULTY3, DIFFICULTY4
 
     clock = pygame.time.Clock()  # Initialize pygame clock
 
@@ -267,16 +272,16 @@ def play_game():
             game['user_y'] += game['move_size']
             game['num_moves'] += 1
 
-        if game['num_moves'] <= 10 and game['user_color'] == GREEN:
+        if game['num_moves'] <= 10 and game['user_color'] == GREEN and DIFFICULTY1:
             set_difficulty(None, 2)
             setup_game()
-        elif game['num_moves'] <= 20 and game['user_color'] == GREEN:
+        elif game['num_moves'] <= 20 and game['user_color'] == GREEN and DIFFICULTY2:
             set_difficulty(None, 3)
             setup_game()
-        elif game['num_moves'] <= 60 and game['user_color'] == GREEN:
+        elif game['num_moves'] <= 60 and game['user_color'] == GREEN and DIFFICULTY3:
             set_difficulty(None, 4)
             setup_game()
-        elif game['num_moves'] <= 100 and game['user_color'] == GREEN:
+        elif game['num_moves'] <= 100 and game['user_color'] == GREEN and DIFFICULTY4:
             menu_obj = menu(SCREEN)
             menu_obj.mainloop(SCREEN)
 
