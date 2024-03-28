@@ -10,6 +10,8 @@
   <li>If the circle is red, the user is moving closer towards the hidden circle</li>
   <li>If the circle is blue, the user is moving farther away from the hidden circle</li>
   <li>If the user finds the hidden circle, the hidden circle will turn yellow and the user's circle will turn green</li>
-  <li>Once the user finds the circle, they can press 'r' to reset the game and move the hidden circle to a different spot</li>
+  <li>If the user finds the hidden circle under a certain amount of moves, the user will automatically go to the next level without having to go to the menu</li>
+  <li>If they don't find it in under that number, the level will keep replaying until they do</li>
   <li>The user can also press 'd' to debug the game and change the color of the hidden circle so it is visible</li>
-    
+</ul>
+<p><h3>Play to the end of the game to get a surprise :)</h3></p>    
