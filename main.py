@@ -24,7 +24,7 @@ The game will always display a running total of the number of moves
 
 __author__ = "Lindsay Green"
 __version__ = '1.0'
-__copyright__ = "Copyright 2024.03.18, Hot/Cold Game Assignment"
+__copyright__ = "Copyright 2024.03.27, Hot/Cold Game Assignment"
 __github_ = "https://github.com/lindllgrn/hotColdGame"
 
 import pygame
@@ -45,6 +45,7 @@ GRAY = (128, 128, 128)
 SCREEN_SIZE = 800
 SCREEN = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 
+# Used for displaying the prompts at the top of the screen for each level
 prompt = {
     'prompt1': 'Try to find the hidden circle in 10 moves, you will move on to the next level if you do so.',
     'prompt2': 'Try to find the hidden circle in 20 moves, you will move on to the next level if you do so.',
@@ -190,26 +191,35 @@ def set_difficulty(level, difficulty):
         game['circle_size'], game['move_size'] = (10, 10)
     elif difficulty == 4:
         game['circle_size'], game['move_size'] = (7, 7)
-    elif difficulty == 5:
+    elif difficulty == 5: # Not an actual difficulty to play, used for the ending when the game is completed
         game['circle_size'], game['move_size'] = (0, 0)
 
 
+# noinspection PyTypeChecker
 def completed_game():
+    """
+    This is also used to create the ending scene of the game. Also has a little surprise to it :)
+    :return: None
+    """
     font = pygame.font.SysFont(None, 85)  # Change the font
     text = font.render(f" YAY YOU WON THE GAME!", True, YELLOW)  # Displays number of moves
     SCREEN.blit(text, (0, 400))
     pygame.mixer.init()  # Initialize pygame.mixer
     pygame.mixer.music.load('yay.mp3')  # Loads this file as the music
     pygame.mixer.music.set_volume(0.5)  # Sets the volume level to 50%
-    pygame.mixer.music.play(loops=1)  # Play the music on an infinite loop
+    pygame.mixer.music.play(loops=1)  # Play the music once
 
 
 # I did this by using this source https://stackoverflow.com/questions/31942122/rendering-unicode-in-pygame
 def funsies():
+    """
+    Created for the ending scene for when the game is completed. It's a surprise :)
+    :return: None
+    """
     unistr = "☺"
-    font = pygame.font.Font("Arial-Unicode-MS-Regular.ttf", 100)
-    SCREEN.blit(font.render(unistr, True, YELLOW), (400, 500))
-    pygame.display.flip()
+    font = pygame.font.Font("Arial-Unicode-MS-Regular.ttf", 100) # Changes the font and size
+    SCREEN.blit(font.render(unistr, True, YELLOW), (400, 500)) # Sets text location and color
+    pygame.display.flip() # Updates the display
 
     while True:
         SCREEN.blit(font.render(unistr, True, YELLOW), (400, 500))
@@ -219,6 +229,7 @@ def funsies():
                 sys.exit()
 
 
+# noinspection PyTypeChecker
 def display_instructions():
     """
     Display the current total number of user's moves
@@ -237,73 +248,87 @@ def display_instructions():
         " "
     ]
 
+    # Used for displaying things on the first difficulty
     if game['circle_size'] == 50 and game['move_size'] == 50:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt1']}", True, YELLOW)
-        SCREEN.blit(text, (10, 10))
+        text = font.render(f"{prompt['prompt1']}", True, YELLOW) # Display the first prompt
+        SCREEN.blit(text, (10, 10)) # Sets text location
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
-        SCREEN.blit(text, (10, 30))
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW) # Used as a constant throughout the game
+        SCREEN.blit(text, (10, 30)) # Sets text location
         font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 130))
+        SCREEN.blit(text, (10, 130)) # Sets text location
+        # Iterates through the instructions to display throughout the game
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
 
+    # Used to display instructions on the second difficulty
     if game['circle_size'] == 25 and game['move_size'] == 25:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt2']}", True, YELLOW)
-        SCREEN.blit(text, (10, 10))
+        text = font.render(f"{prompt['prompt2']}", True, YELLOW) # Displays the prompt
+        SCREEN.blit(text, (10, 10)) # Sets the location of the text
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
-        SCREEN.blit(text, (10, 30))
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW) # Used as a constant throughout the game
+        SCREEN.blit(text, (10, 30)) # Sets the location of the text
         font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 130))
+        SCREEN.blit(text, (10, 130)) # Sets the location of the text
+
+        # Iterates to display the instructions at the top of the screen
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
 
+    # Used for displaying things on the third difficulty
     if game['circle_size'] == 10 and game['move_size'] == 10:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt3']}", True, YELLOW)
-        SCREEN.blit(text, (10, 10))
+        text = font.render(f"{prompt['prompt3']}", True, YELLOW) # Display the third prompt
+        SCREEN.blit(text, (10, 10)) # Sets the text location
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
-        SCREEN.blit(text, (10, 30))
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW) # Used as a constant throughout the game
+        SCREEN.blit(text, (10, 30)) # Sets the location of the text
         font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 130))
+        SCREEN.blit(text, (10, 130)) # Sets the location of the text
+
+        # Iterates to display the instructions at the top of the screen
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
 
+    # Used for displaying things on the fourth difficulty
     if game['circle_size'] == 7 and game['move_size'] == 7:
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt4']}", True, YELLOW)
-        SCREEN.blit(text, (10, 10))
+        text = font.render(f"{prompt['prompt4']}", True, YELLOW) # Displays the prompt
+        SCREEN.blit(text, (10, 10)) # Sets the text location
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
-        SCREEN.blit(text, (10, 30))
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW) # Used as a constant throughout the game
+        SCREEN.blit(text, (10, 30)) # Sets the text location
         font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 130))
+        SCREEN.blit(text, (10, 130)) # Sets the text location
+
+        # Iterates to display the instructions at the top of the screen
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
 
+    # Used for displaying things on the fifth difficulty
     if game['circle_size'] == 0 and game['move_size'] == 0:
         font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, BLACK)  # Displays number of moves
-        SCREEN.blit(text, (10, 110))
+        SCREEN.blit(text, (10, 110)) # Sets text location
         font = pygame.font.SysFont(None, 24)  # Change the font
-        text = font.render(f"{prompt['prompt5']}", True, BLACK)
-        SCREEN.blit(text, (10, 30))
+        text = font.render(f"{prompt['prompt5']}", True, BLACK) # Used as a constant throughout the game
+        SCREEN.blit(text, (10, 30)) # Set the text location
+
+        # Iterates to display the instructions at the top of the screen
         for i, instruction in enumerate(instructions):
-            text = font.render(instruction, True, BLACK)
             text = font.render(f"{prompt['prompt4']}", True, BLACK)
             SCREEN.blit(text, (10, 30 + i * 20))
+
         completed_game()
         funsies()
 
@@ -366,38 +391,32 @@ def play_game():
             game['user_y'] += game['move_size']
             game['num_moves'] += 1
 
-        if game['num_moves'] > 10 and game['user_color'] == GREEN and game['circle_size'] == 50 and game[
-            'move_size'] == 50:
+        # Allows the user to move from level to level if they get a certain amount of moves
+        if game['num_moves'] > 10 and game['user_color'] == GREEN and game['circle_size'] == 50 and game['move_size'] == 50:
             setup_game()
-        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 50 and game[
-            'move_size'] == 50:
+        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 50 and game['move_size'] == 50:
             set_difficulty(None, 2)
             setup_game()
 
-        if game['num_moves'] > 21 and game['user_color'] == GREEN and game['circle_size'] == 25 and game[
-            'move_size'] == 25:
+        if game['num_moves'] > 21 and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
             setup_game()
-        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 25 and game[
-            'move_size'] == 25:
+        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 25 and game['move_size'] == 25:
             set_difficulty(None, 3)
             setup_game()
 
-        if game['num_moves'] > 50 and game['user_color'] == GREEN and game['circle_size'] == 10 and game[
-            'move_size'] == 10:
+        if game['num_moves'] > 50 and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
             setup_game()
-        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 10 and game[
-            'move_size'] == 10:
+        elif game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 10 and game['move_size'] == 10:
             set_difficulty(None, 4)
             setup_game()
 
         if game['num_moves'] and game['user_color'] == GREEN and game['circle_size'] == 7 and game['move_size'] == 7:
             set_difficulty(None, 5)
 
+        # Checks for events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run_me = False
-
-    # Checks for events
 
 
 def menu(screen):
@@ -435,7 +454,7 @@ def play_music():
 
 def main():
     """
-
+    Used for running the game as a whole
     :return: None
     """
     pygame.init()  # Initializes pygame

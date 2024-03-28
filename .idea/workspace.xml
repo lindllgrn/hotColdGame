@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="I have finished the code, just need to comment what i changed and i added a little surprise when they finish the game :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -254,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711575632361</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="I have finished the code, just need to comment what i changed and i added a little surprise when they finish the game :)">
+      <option name="closed" value="true" />
+      <created>1711590707896</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1711590707896</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,7 +298,8 @@
     <MESSAGE value="changing up the directions so it displays something different for each difficulty" />
     <MESSAGE value="trying to fix some of the add ins as well as add other things" />
     <MESSAGE value="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun" />
+    <MESSAGE value="I have finished the code, just need to comment what i changed and i added a little surprise when they finish the game :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="I have finished the code, just need to comment what i changed and i added a little surprise when they finish the game :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
