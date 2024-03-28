@@ -30,6 +30,7 @@ __github_ = "https://github.com/lindllgrn/hotColdGame"
 import pygame
 import random
 import pygame_menu
+import sys
 
 # Define colors
 BLACK = (0, 0, 0)
@@ -45,10 +46,11 @@ SCREEN_SIZE = 800
 SCREEN = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 
 prompt = {
-    'prompt1': 'Try to find the hidden circle in 10 moves, you will move on to the next level if you do so. ',
-    'prompt2': 'Try to find the hidden circle in 20 moves, you will move on to the next level if you do so. ',
-    'prompt3': 'Try to find the hidden circle in 50 moves, you will move on to the next level if you do so. ',
-    'prompt4': 'Try to find the hidden circle in 70 moves, you will move on to the next level if you do so. '
+    'prompt1': 'Try to find the hidden circle in 10 moves, you will move on to the next level if you do so.',
+    'prompt2': 'Try to find the hidden circle in 20 moves, you will move on to the next level if you do so.',
+    'prompt3': 'Try to find the hidden circle in 50 moves, you will move on to the next level if you do so.',
+    'prompt4': 'Try to find the hidden circle in 70 moves, you will move on to the next level if you do so.',
+    'prompt5': 'Otherwise, you will play the level over until you do.'
 }
 
 # Game data that can change  values
@@ -193,9 +195,28 @@ def set_difficulty(level, difficulty):
 
 
 def completed_game():
-    font = pygame.font.SysFont(None, 90)  # Change the font
-    text = font.render(f"YAY YOU WON THE GAME!!", True, YELLOW)  # Displays number of moves
+    font = pygame.font.SysFont(None, 85)  # Change the font
+    text = font.render(f" YAY YOU WON THE GAME!", True, YELLOW)  # Displays number of moves
     SCREEN.blit(text, (0, 400))
+    pygame.mixer.init()  # Initialize pygame.mixer
+    pygame.mixer.music.load('yay.mp3')  # Loads this file as the music
+    pygame.mixer.music.set_volume(0.5)  # Sets the volume level to 50%
+    pygame.mixer.music.play(loops=1)  # Play the music on an infinite loop
+
+
+# I did this by using this source https://stackoverflow.com/questions/31942122/rendering-unicode-in-pygame
+def funsies():
+    unistr = "☺"
+    font = pygame.font.Font("Arial-Unicode-MS-Regular.ttf", 100)
+    SCREEN.blit(font.render(unistr, True, YELLOW), (400, 500))
+    pygame.display.flip()
+
+    while True:
+        SCREEN.blit(font.render(unistr, True, YELLOW), (400, 500))
+        for e in pygame.event.get():
+            if e.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
 
 
 def display_instructions():
@@ -208,12 +229,12 @@ def display_instructions():
 
     # List of instructions to display
     instructions = [
+        " ",
         "Use arrow keys to move",
         "q = Debug mode",
         "h = Move home",
         "r = Reset game",
-        "\n",
-        "Otherwise, you will play the level over until you do."
+        " "
     ]
 
     if game['circle_size'] == 50 and game['move_size'] == 50:
@@ -221,8 +242,11 @@ def display_instructions():
         text = font.render(f"{prompt['prompt1']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
         font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
+        SCREEN.blit(text, (10, 30))
+        font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 110))
+        SCREEN.blit(text, (10, 130))
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
@@ -232,8 +256,11 @@ def display_instructions():
         text = font.render(f"{prompt['prompt2']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
         font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
+        SCREEN.blit(text, (10, 30))
+        font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 110))
+        SCREEN.blit(text, (10, 130))
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
@@ -243,8 +270,11 @@ def display_instructions():
         text = font.render(f"{prompt['prompt3']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
         font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
+        SCREEN.blit(text, (10, 30))
+        font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 110))
+        SCREEN.blit(text, (10, 130))
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
@@ -254,8 +284,11 @@ def display_instructions():
         text = font.render(f"{prompt['prompt4']}", True, YELLOW)
         SCREEN.blit(text, (10, 10))
         font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt5']}", True, YELLOW)
+        SCREEN.blit(text, (10, 30))
+        font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, WHITE)  # Displays number of moves
-        SCREEN.blit(text, (10, 110))
+        SCREEN.blit(text, (10, 130))
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, WHITE)
             SCREEN.blit(text, (10, 30 + i * 20))
@@ -264,11 +297,15 @@ def display_instructions():
         font = pygame.font.SysFont(None, 24)  # Change the font
         text = font.render(f"Total moves = {game['num_moves']}", True, BLACK)  # Displays number of moves
         SCREEN.blit(text, (10, 110))
+        font = pygame.font.SysFont(None, 24)  # Change the font
+        text = font.render(f"{prompt['prompt5']}", True, BLACK)
+        SCREEN.blit(text, (10, 30))
         for i, instruction in enumerate(instructions):
             text = font.render(instruction, True, BLACK)
             text = font.render(f"{prompt['prompt4']}", True, BLACK)
             SCREEN.blit(text, (10, 30 + i * 20))
         completed_game()
+        funsies()
 
 
 def play_game():

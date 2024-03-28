@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="trying to fix some of the add ins as well as add other things">
+    <list default="true" id="520688a5-1e27-4efa-a622-0c7b3e0a3e2c" name="Changes" comment="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -246,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711573984062</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun">
+      <option name="closed" value="true" />
+      <created>1711575632360</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1711575632361</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -281,14 +289,15 @@
     <MESSAGE value="GOT MOVING DIFFICULTY TO WORK!!!" />
     <MESSAGE value="changing up the directions so it displays something different for each difficulty" />
     <MESSAGE value="trying to fix some of the add ins as well as add other things" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to fix some of the add ins as well as add other things" />
+    <MESSAGE value="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ive updated a lot, like added a lot of code to display_instructions and more to make the game more fun" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/testing.py</url>
-          <line>25</line>
+          <line>2</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
